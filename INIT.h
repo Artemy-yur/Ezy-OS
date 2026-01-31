@@ -13,3 +13,6 @@ static void match_actions(void);
 
 //time
 void times(void);
+
+//wearth
+void get_weather_win(const char *city);

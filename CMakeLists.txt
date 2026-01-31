@@ -9,4 +9,7 @@ add_executable(Ezy_OS main.c
         additions/calculator.c
         libraru/initlibery.h
         libraru/brbr.h
-        additions/timenow.c)
+        additions/timenow.c
+        additions/wearth/getWearth.c)
+
+target_link_libraries(Ezy_OS ws2_32)
