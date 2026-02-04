@@ -12,6 +12,7 @@ def print_help():
     print("  exit      - Выход / Exit")
     print("  help      - Справка / Help")
     print("  clear     - Очистка / Clear screen")
+    print(" list       - Все файлы / File")
 
 def main():
     print_help()

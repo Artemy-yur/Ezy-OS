@@ -46,12 +46,12 @@ void notich(void) {
         case 0:
             read_notich();
             CLEAR;
-            start();
+            starts();
             break;
         case 1:
             write_notich();
             CLEAR;
-            start();
+            starts();
             break;
         default:
             printf("Error");

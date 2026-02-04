@@ -132,4 +132,5 @@ void listfile(void) {
     }
 
     closedir(listdir);
+    SLEEP(10);
 }

@@ -11,6 +11,7 @@ add_executable(Ezy_OS
         additions/wearth/getWearth.c
         interface/interface.c
         additions/help/help.c
+        additions/infos.c
         additions/notich.c
 )
 

@@ -36,7 +36,7 @@ void actions(void) {
             case 4:
                 CLEAR;
                 system("cls");
-                start();
+                starts();
                 return;
             default:
                 printf("Такого пункта нет!\n");

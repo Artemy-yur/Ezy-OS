@@ -22,10 +22,11 @@ static int mainmeny_ru(void)
       "1. Работа над файлом.\n",
       "2. Математика.\n",
       "3. Время сейчас.\n",
-      "4. Погода.\n"
-      "5. Help\n"
-      "6. Заметка\n"
-      "7. Все файлы в директории\n"};
+      "4. Погода.\n",
+      "5. Help\n",
+      "6. Заметка\n",
+      "7. Все файлы в директории\n",
+      "8. Информация о Системе\n"};
   for (size_t i = 0; i < 3; i++)
   {
     printf("%s", tegs[i]);
@@ -40,7 +41,7 @@ static int mainmeny_ru(void)
   }
 
   while(1) {
-    printf("Введите число от (1-7): ");
+    printf("Введите число от (1-8): ");
 
     if(scanf("%hd", &vibor_s) != 1) {
     
@@ -49,8 +50,8 @@ static int mainmeny_ru(void)
       continue;
     }
 
-    if(vibor_s > 6 || vibor_s < 1){
-      printf("Error: Чило от 1 до 7\n");
+    if(vibor_s > 8 || vibor_s < 1){
+      printf("Error: Чило от 1 до 8\n");
     }
     else {
       break;
@@ -122,7 +123,7 @@ int start(void)
   //printf("Your language (ru/en)?: ");
 
   // Временное решение: всегда вызываем RU версию
-  scanf("%9s", lengch);
+  //scanf("%9s", lengch);
   int res = mainmeny_ru();
 
 

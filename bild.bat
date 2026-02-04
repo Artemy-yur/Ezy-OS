@@ -8,7 +8,8 @@ set SRCS=main.c^
  additions/timenow.c^
  additions/wearth/getWearth.c^
  interface/interface.c^
- additions/help/help.c
+ additions/help/help.c^
+ additions/infos.c
 
 REM Добавляем пути для заголовочных файлов
 set INCLUDES=-I. -Ilibraru

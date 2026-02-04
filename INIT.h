@@ -25,6 +25,8 @@ void get_weather_win(const char *city);
 //interface
 int start(void);
 void python_help(void);
-
+int starts(void);
 
 void notich(void);
+
+void info_system(void);
