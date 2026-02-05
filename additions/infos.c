@@ -38,11 +38,11 @@ typedef struct {
 } date;
 
 void info_system(void) {
-    date now = {"04.02.2026", "Version 0.2"};
+    date now = {"05.02.2026", "Version 0.3"};
     printf("Last update: %s\nVersion: %s\n", now.last_update, now.version);
     print_memory_info();
     mem_info();
-    printf("Press 0 to exit");
+    printf("Press 0 to exit\n");
     while (1) {
         short v;
         scanf("%hd", &v);
