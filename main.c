@@ -8,49 +8,49 @@
 #include "INIT.h"
 #include "clearwin.h"
 
-
-void execute_choice(int choice) {
-    switch(choice) {
-        case 1:
-            menu_file();
-            break;
-        case 2:
-            actions();
-            break;
-        case 3:
-            times();
-            break;
-        case 4:
-            {
-                char city[50];
-                printf("Введите город: ");
-                scanf("%49s", city);
-                while(getchar() != '\n'); // Очистка буфера
-                get_weather_win(city);
-            }
-            break;
-        case 5:
-            python_help();
-            break;
-        case 6:
-            printf("Функция заметок (пока не реализована)\n");
-            printf("\nНажмите Enter для продолжения...");
-            getchar();
-            break;
-        case 7:
-            listfile();
-            break;
-        case 8:
-            info_system();
-            break;
-        default:
-            printf("Неизвестное действие!\n");
-            printf("\nНажмите Enter для продолжения...");
-            getchar();
-            break;
+void execute_choice(int choice)
+{
+    switch (choice)
+    {
+    case 1:
+        menu_file();
+        break;
+    case 2:
+        actions();
+        break;
+    case 3:
+        times();
+        break;
+    case 4:
+    {
+        char city[50];
+        printf("Введите город: ");
+        scanf("%49s", city);
+        while (getchar() != '\n')
+            ; // Очистка буфера
+        get_weather_win(city);
+    }
+    break;
+    case 5:
+        python_help();
+        break;
+    case 6:
+        notich();
+        getchar();
+        break;
+    case 7:
+        listfile();
+        break;
+    case 8:
+        info_system();
+        break;
+    default:
+        printf("Неизвестное действие!\n");
+        printf("\nНажмите Enter для продолжения...");
+        getchar();
+        break;
     }
 }
-
 
 int starts(void)
 {
@@ -76,12 +76,15 @@ int starts(void)
 
         if (scanf("%d", &choice) != 1)
         {
-            while (getchar() != '\n');
+            while (getchar() != '\n')
+                ;
             continue;
         }
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
 
-        if (choice == 0)exit(0);
+        if (choice == 0)
+            exit(0);
 
         if (choice < 1 || choice > 8)
         {
@@ -94,16 +97,11 @@ int starts(void)
     }
 }
 
-
-
 int main(void)
 {
 
     int first_choice = start();
-
     execute_choice(first_choice);
-
     starts();
-
     return 0;
 }

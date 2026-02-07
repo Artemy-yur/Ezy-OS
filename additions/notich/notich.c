@@ -4,63 +4,81 @@
 /*
  * Nolerr-OS - Copyright (c) 2025 Артемий Юров
  * Лицензия MIT: свободное использование с сохранением авторства
-*/
+ */
 
 #include "../libraru/initlibery.h"
 #include "../clearwin.h"
 #include "../INIT.h"
 #include <sys/stat.h>
 
-
 static void read_notich(void);
 static void write_notich(void);
 
 
-void notich(void) {
+void notich(void)
+{
     const char *filename = "notich.txt";
 
     // Проверка и создание файла
-    if (access(filename, F_OK) != 0) {
-        //Перепроверять на разных системах не факт что работает.
+    if (access(filename, F_OK) != 0)
+    {
+        // Перепроверять на разных системах не факт что работает.
         FILE *f = fopen(filename, "w");
-        if (f) fclose(f);
+        if (f)
+            fclose(f);
     }
 
     short v = -1;
 
     printf("Нажмите 0 чтобы вывести текст, 1 чтобы написать новую: ");
 
-    while (true) {
-        if (scanf("%hd", &v) != 1) {
-            while (getchar() != '\n');
+    while (true)
+    {
+        if (scanf("%hd", &v) != 1)
+        {
+            while (getchar() != '\n')
+                ;
             printf("Введите число 0 или 1: ");
             continue;
         }
-        if (v == 0 || v == 1) {
+        if (v == 0 || v == 1)
+        {
             break;
         }
         printf("От 0 до 1: ");
     }
 
-    switch (v) {
-        case 0:
-            read_notich();
-            CLEAR;
-            starts();
-            break;
-        case 1:
-            write_notich();
-            CLEAR;
-            starts();
-            break;
-        default:
-            printf("Error");
+    switch (v)
+    {
+    case 0:
+        read_notich();
+        while (true)
+        {
+            short v;
+            scanf("%hd", &v);
+            if (v > 0)
+            {
+                break;
+            }
+        }
+        CLEAR;
+        starts();
+        break;
+    case 1:
+        write_notich();
+        CLEAR;
+        starts();
+        break;
+    default:
+        printf("Error");
     }
 }
 
-static void read_notich(void) {
+static void read_notich(void)
+{
     FILE *f = fopen("notich.txt", "r");
-    if (f == NULL) {
+    if (f == NULL)
+    {
         perror("ERROR opening file");
         return;
     }
@@ -68,7 +86,8 @@ static void read_notich(void) {
     fseek(f, 0, SEEK_END);
     long fsize = ftell(f);
 
-    if (fsize <= 0) {
+    if (fsize <= 0)
+    {
         printf("Файл пуст\n");
         fclose(f);
         return;
@@ -76,7 +95,8 @@ static void read_notich(void) {
 
     rewind(f);
     char *buffer = (char *)malloc(fsize + 1);
-    if (buffer == NULL) {
+    if (buffer == NULL)
+    {
         perror("Memory allocation failed");
         fclose(f);
         return;
@@ -90,9 +110,11 @@ static void read_notich(void) {
     free(buffer);
 }
 
-static void write_notich(void) {
+static void write_notich(void)
+{
     FILE *f = fopen("notich.txt", "a");
-    if (f == NULL) {
+    if (f == NULL)
+    {
         perror("ERROR opening file");
         return;
     }
@@ -101,10 +123,12 @@ static void write_notich(void) {
 
     // Очистка stdin от предыдущего ввода (например, \n от scanf)
     int c;
-    while ((c = getchar()) != '\n' && c != EOF);
+    while ((c = getchar()) != '\n' && c != EOF)
+        ;
 
     char buffer[512];
-    if (fgets(buffer, sizeof(buffer), stdin) != NULL) {
+    if (fgets(buffer, sizeof(buffer), stdin) != NULL)
+    {
         fprintf(f, "%s", buffer);
     }
 

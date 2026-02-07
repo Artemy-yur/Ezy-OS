@@ -9,7 +9,8 @@ set SRCS=main.c^
  additions/wearth/getWearth.c^
  interface/interface.c^
  additions/help/help.c^
- additions/infos.c
+ additions/infos.c^
+ additions/notich/notich.c
 
 REM Добавляем пути для заголовочных файлов
 set INCLUDES=-I. -Ilibraru
@@ -24,11 +25,6 @@ if %ERRORLEVEL% equ 0 (
     echo --- Build successful! ---
     echo Executable created: Ezy_OS.exe
     
-    REM Копируем Python файлы для help
-    if exist "additions\help\help.py" (
-        copy "additions\help\help.py" ".\" >nul
-        echo Copied help.py
-    )
     
     echo.
     echo To run: Ezy_OS.exe

@@ -23,3 +23,11 @@
 #define CLEAR system("clear");
 void actions(void);
 #endif
+
+#ifdef _WIN32
+#include <io.h>
+#define F_OK 0
+#define access _access
+#else
+#include <unistd.h>
+#endif
